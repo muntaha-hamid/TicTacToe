@@ -64,6 +64,9 @@ for(let pattern of winPatterns){
             console.log("winner",pos1);
             showWinner(pos1);
         }
+        else{
+            console.log("Draw");
+        }
        
     }
 }
