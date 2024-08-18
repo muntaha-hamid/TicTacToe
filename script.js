@@ -55,6 +55,7 @@ boxes.forEach((box)=> {
    
 })
 const checkWinner = ()=>{
+    let isDraw=true;
 for(let pattern of winPatterns){
     let pos1=boxes[pattern[0]].innerText;
     let pos2=boxes[pattern[1]].innerText;
@@ -63,13 +64,26 @@ for(let pattern of winPatterns){
         if(pos1===pos2 && pos2===pos3){
             console.log("winner",pos1);
             showWinner(pos1);
+            isDraw=false;
+            break;
         }
-        else{
-            console.log("Draw");
-        }
-       
     }
 }
+    f (isDraw) {
+        // Check if all boxes are filled
+        let allFilled = true;
+        for (let box of boxes) {
+            if (box.innerText === "") {
+                allFilled = false;
+                break;
+            }
+        }
+
+        if (allFilled) {
+            console.log("Draw");
+            showWinner("Draw");  
+        }
+    }
 }
 newgame.addEventListener("click",resetGame);
 rstbtn.addEventListener("click",resetGame);
